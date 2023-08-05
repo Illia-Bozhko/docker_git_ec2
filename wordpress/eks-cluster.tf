@@ -1,9 +1,6 @@
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "17.24.0"
-  # windows workaround
-  # wait_for_cluster_interpreter = ["c:/cmder/vendor/git-for-windows/bin/sh.exe", "-c"]
-  # wait_for_cluster_cmd         = "until curl -sk $ENDPOINT >/dev/null; do sleep 4; done"
   cluster_name    = local.cluster_name
   cluster_version = "1.25"
   subnets         = module.vpc.private_subnets
